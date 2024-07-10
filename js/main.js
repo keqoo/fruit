@@ -1,5 +1,4 @@
-
-var game = new Phaser.Game(640, 480, Phaser.CANVAS, 'game');
+var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.CANVAS, 'game');
 
 game.States = {};
 
@@ -31,3 +30,8 @@ game.state.add('main', game.States.main);
 game.state.add('play', game.States.play);
 
 game.state.start('boot');
+
+// 监听窗口大小变化事件，以调整游戏大小
+window.addEventListener('resize', function() {
+  game.scale.resize(window.innerWidth, window.innerHeight);
+});
